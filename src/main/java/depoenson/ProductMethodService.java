@@ -71,14 +71,14 @@ public class ProductMethodService implements ProductService {
     // 6.adım: kitaplari formatla yazdiralim
     @Override
     public void urunListeleme() {
-        System.out.println("----------------URUN LİSTESİ-------------------");
-        System.out.println("--------------------------------------------------------------------------");
-        System.out.printf("%-4s | %-15s | %-10s | %-9s | %-17s | %-5s\n",
+        System.out.println("           ----------------URUN LİSTESİ-------------------");
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.printf("%-4s| %-20s| %-15s| %-9s| %-18s| %-5s\n",
                 "ID", " Urun Adi ", "Uretici" , " Miktar ", " Birim ", " Raf ");
-        System.out.println("-----------------------------------------------------------");
-        this.products.forEach(product -> System.out.printf("%-2s | %-15s | %-10s | %-9s | %-10s |%-5s\n",
+        System.out.println("---------------------------------------------------------------------------------");
+        this.products.forEach(product -> System.out.printf("%-4s| %-20s| %-15s| %-9s| %-18s|%-5s\n",
                 product.getId(), product.getName(), product.getUretici(), product.getMiktar(), product.getBirim(), product.getRaf()));
-        System.out.println("----------------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------------------------");
 
 
     }
@@ -108,7 +108,7 @@ public class ProductMethodService implements ProductService {
             String birim = inp.nextLine();
             System.out.println("Raf");
             String raf = inp.nextLine();
-            Product newProduct = new Product(name, uretici, miktar, birim, raf);
+            Product newProduct = new Product(name, uretici, miktar, birim, "raf " +raf);
             this.products.add(newProduct);
 
             System.out.println("çıkmak icin 0 tuslayiniz");
@@ -146,7 +146,7 @@ public class ProductMethodService implements ProductService {
         int counter = 0;
         for (Product product : this.products) {
             if (product.getBirim().equalsIgnoreCase(filter)) {
-                System.out.printf("%-4s | %-15s | %-10s | %-9s | %-17s | %-5s\n",
+                System.out.printf("%-4s| %-20s| %-15s| %-9s| %-18s| %-5s\n",
                         product.getId(), product.getName(), product.getUretici(), product.getMiktar(), product.getBirim(), product.getRaf());
                 counter++;
             }

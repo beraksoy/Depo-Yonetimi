@@ -8,8 +8,6 @@ public class DepoYonetim {
 
 
         productMethodService.girisMenu();
-        productMethodService.urunEkleme();
-        productMethodService.urunListeleme();
 
 
     }
